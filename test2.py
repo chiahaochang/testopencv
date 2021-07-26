@@ -1,6 +1,4 @@
 import cv2
+import matplotlib.pyplot as plt
 
-img1 = cv2.imread('./img/rem.png')
-cv2.imshow('rem',img1)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+img = cv2.imread('./img/parie.jpg')
