@@ -2,19 +2,22 @@ from typing import ClassVar
 
 import cv2 as cv
 
-
-img1 = cv.imread('./img/parie.jpg')
+e1 = cv.getTickCount()
+img1 = cv.imread('./img/light.jpg')
+img2 = cv.imread('./img/opencvLogo.png')
 print(img1.shape)
-print(len(img1),len(img1[0]))
+print(img2.shape)
 
 
 
-roi1 = img1[150:300,600:700]
-roi2 = img1[50:200,200:300]
+roi1 = img1[0:377,0:427]
+roi2 = img2[0:377,0:427]
 
 dst = cv.addWeighted(roi1,0.5,roi2,0.5,0)
-img1[50:200,200:300] = dst
-
+img1[0:377,0:427] = dst
 cv.imshow('show',img1)
+e2 = cv.getTickCount()
+t = (e2 - e1) / cv.getTickFrequency()
+print(t)
 cv.waitKey(0)
 cv.destroyAllWindows()
